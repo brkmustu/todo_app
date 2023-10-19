@@ -43,3 +43,58 @@ migration:
   unmanaged_files:
     - 'lib/main.dart'
     - 'ios/Runner.xcodeproj/project.pbxproj'
+
+# Flutter/Dart spesifik
+/.dart_tool/
+/pubspec.lock
+/packages
+/.pub-cache/
+/build/
+/flutter/
+/generated/
+/ios/Flutter
+/android/app/build/
+/android/app/intermediates/
+/android/app/generated/
+/ios/Pods/
+/ios/Runner.xcworkspace/
+
+# IntelliJ/Android Studio projesi
+.idea/
+
+# VSCode projesi
+.vscode/
+
+# macOS için
+.DS_Store
+# Thumbnails
+._*
+
+# macOS için Spotlight
+.Spotlight-V100
+.Trashes
+
+# Windows için
+Thumbs.db
+ehthumbs.db
+
+# Flutter proje spesifik dosyalar
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+
+# Firebase konfigürasyon dosyası
+/android/app/google-services.json
+/ios/Runner/GoogleService-Info.plist
+
+# Uygulamanızın günlükleri (isteğe bağlı)
+/logs/
+
+# Ortak uygulama verileri (isteğe bağlı)
+/shared/
+
+# Android uygulama imzaları ve anahtarları (çok hassas, genellikle gereksiz)
+/android/app/key.properties
+/android/app/release.keystore
+
+# iOS uygulama sertifikaları ve anahtarları (çok hassas, genellikle gereksiz)
+/ios/Runner/Runner.entitlements
