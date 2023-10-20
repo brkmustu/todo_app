@@ -1,37 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:todo_app/constants/color.dart';
 import 'package:todo_app/layout_sections.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool isChecked = false;
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: HexColor(backgroundColor),
-          body: Stack(
-            fit: StackFit.loose,
+          body: Column(
             children: [
-              // Header
+              // Header bölümü
               getHeaderWidget(context),
-              // Top Column
-              getTopColumnWidget(),
-              bottomContainer
+              // Body bölümü (scroll edilebilir liste)
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                      16, 0, 16, 0), // Sağdan ve soldan 16 piksel boşluk
+                  child: Card(
+                    margin: EdgeInsets.all(0), // Card kenar boşluğunu kaldır
+                    child: ListView.separated(
+                      itemCount: 50, // Listede görüntülenen öğelerin sayısı
+                      separatorBuilder: (BuildContext context, int index) {
+                        return Divider(
+                          height: 1, // Divider yüksekliği
+                          color: Colors.grey,
+                        );
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          title: Text('Öğe $index'),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              // Footer bölümü
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Deneme"),
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+              ),
+              // Container(
+              //   height: 50.0,
+              //   color: Colors.green,
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     child: Text("Deneme"),
+              //     style: ElevatedButton.styleFrom(
+              //         shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(10))),
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -44,15 +44,17 @@ Widget getHeaderWidget(BuildContext context) => Container(
       ),
     );
 
-Positioned getTopColumnWidget() => const Positioned(
+Positioned getTopColumnWidget(BuildContext context) => Positioned(
       top: 158,
       left: 16,
       right: 16,
-      child: SingleChildScrollView(
-        child: Card(
-          elevation: 5,
-          child: TaskList(name: "Yapılacaklar"),
-        ),
+      child: Card(
+        child: Column(children: [
+          ListTile(
+            title: Text('Başlık'),
+          ),
+          Expanded(child: buildTaskList(context))
+        ]),
       ),
     );
 
