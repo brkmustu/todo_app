@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:todo_app/constants/color.dart';
-import 'package:todo_app/layout_sections.dart';
+import 'package:todo_app/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,23 +17,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          backgroundColor: HexColor(backgroundColor),
-          body: Stack(
-            // fit: StackFit.loose,
-            children: [
-              // Header
-              getHeaderWidget(context),
-              // Top Column
-              getTopColumnWidget(),
-              bottomContainer
-            ],
-          ),
-        ),
-      ),
+      home: HomeScreen(),
     );
   }
 }
