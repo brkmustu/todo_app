@@ -2,18 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:todo_app/constants/app_sizes.dart';
 import 'package:todo_app/constants/color.dart';
-import 'package:todo_app/custom_widgets/task_list.dart';
+import 'package:todo_app/constants/task_types.dart';
 import 'package:todo_app/screens/add_new_task.dart';
+import 'package:todo_app/tasks/task.dart';
+import 'package:todo_app/tasks/task_widgets.dart';
 
-List<TaskModel> todos = [
-  TaskModel("Flutter", false),
-  TaskModel("Rust-Lang", false),
-  TaskModel("Javascript", true),
-  TaskModel("Algoritmalar", false),
-  TaskModel("Veri Yapıları", false),
-  TaskModel("Agile Metodoloji", false),
-  TaskModel("Tasarım Sistemi", false),
-  TaskModel("SQL", true)
+List<Task> todos = [
+  Task(
+    title: "Flutter",
+    description: "flutter çalışmalarım",
+    isCompleted: false,
+    type: TaskType.note,
+  ),
+  Task(
+    title: "Rust-Lang",
+    description: "rust-lang çalışmalarım",
+    isCompleted: false,
+    type: TaskType.calender,
+  ),
+  Task(
+    title: "Javascript",
+    description: "javascript çalışmalarım",
+    isCompleted: true,
+    type: TaskType.contest,
+  ),
+  Task(
+    title: "Algoritmalar",
+    description: "algoritmalar çalışmalarım",
+    isCompleted: false,
+    type: TaskType.note,
+  ),
+  Task(
+    title: "Veri Yapıları - Graf Teorisi",
+    description:
+        "özellikle graf teorisi üzerine ayrıntılı çalışmalar gerekiyor",
+    isCompleted: false,
+    type: TaskType.note,
+  ),
+  Task(
+    title: "İleri seviye SQL",
+    description:
+        "ileri seviye SQL için indexleme üzerine detaylı çalışma yapmalıyız.",
+    isCompleted: false,
+    type: TaskType.contest,
+  ),
+  Task(
+    title: "Tasarım Sistemi - UI/UX",
+    description: "Tasarım Sistemi - UI/UX çalışmalarım",
+    isCompleted: false,
+    type: TaskType.calender,
+  ),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -127,14 +165,13 @@ double bodyHeightCalculate(int adet) {
   }
 }
 
-Positioned prepareBodyWidget(List<TaskModel> todos) => Positioned(
+Positioned prepareBodyWidget(List<Task> todos) => Positioned(
       top: 160,
       left: 16,
       right: 16,
       child: SizedBox(
         height: bodyHeightCalculate(todos.length),
         child: TaskList(
-          name: "Yapılacaklar",
           todos: todos,
         ),
       ),
