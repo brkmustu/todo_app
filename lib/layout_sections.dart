@@ -48,12 +48,13 @@ Positioned getTopColumnWidget() => const Positioned(
       top: 158,
       left: 16,
       right: 16,
-      child: SingleChildScrollView(
-        child: Card(
-          elevation: 5,
-          child: TaskList(name: "Yapılacaklar"),
-        ),
-      ),
+      child: TaskList(name: "Yapılacaklar"),
+      // child: SingleChildScrollView(
+      //   child: Card(
+      //     elevation: 5,
+      //     child: TaskList(name: "Yapılacaklar"),
+      //   ),
+      // ),
     );
 
 Padding getComplatedTextWidget() => const Padding(

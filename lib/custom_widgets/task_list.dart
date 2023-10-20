@@ -54,24 +54,35 @@ class TaskList extends StatelessWidget {
     const items = 16;
 
     return Expanded(
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: constraints.maxHeight,
-                minHeight: getDeviceHeight(context) - 300,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: List.generate(
-                    items, (index) => ItemWidget(text: 'Item $index')),
-              ),
-            ),
-          );
-        },
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 165, 16, 0),
+        child: Card(
+          child: ListView.builder(
+            itemCount: items,
+            itemBuilder: (context, index) {
+              return ItemWidget(text: 'Item $index');
+            },
+          ),
+        ),
       ),
+      // child: LayoutBuilder(
+      //   builder: (context, constraints) {
+      //     return SingleChildScrollView(
+      //       child: ConstrainedBox(
+      //         constraints: BoxConstraints(
+      //           maxHeight: constraints.maxHeight,
+      //           minHeight: getDeviceHeight(context) - 300,
+      //         ),
+      //         child: Column(
+      //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //           crossAxisAlignment: CrossAxisAlignment.stretch,
+      //           children: List.generate(
+      //               items, (index) => ItemWidget(text: 'Item $index')),
+      //         ),
+      //       ),
+      //     );
+      //   },
+      // ),
     );
   }
 }

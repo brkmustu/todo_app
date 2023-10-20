@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         child: Scaffold(
           backgroundColor: HexColor(backgroundColor),
           body: Stack(
-            fit: StackFit.loose,
+            // fit: StackFit.loose,
             children: [
               // Header
               getHeaderWidget(context),
