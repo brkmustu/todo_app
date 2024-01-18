@@ -7,6 +7,7 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //expanded widgetini sildik
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
