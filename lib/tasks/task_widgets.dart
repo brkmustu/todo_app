@@ -7,22 +7,20 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: ListView.separated(
-          itemCount: todos.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(task: todos[index]);
-          },
-          separatorBuilder: (context, index) {
-            return const Divider(
-              color: Colors.blueGrey, // Ayırıcı rengi
-            );
-          },
-        ),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: ListView.separated(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          return ItemWidget(task: todos[index]);
+        },
+        separatorBuilder: (context, index) {
+          return const Divider(
+            color: Colors.blueGrey, // Ayırıcı rengi
+          );
+        },
       ),
     );
   }
@@ -49,27 +47,29 @@ class _ItemWidgetState extends State<ItemWidget> {
       child: Row(
         children: [
           Expanded(
-            child: Row(
-              children: [
-                widget.task.getTypeImage(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.task.title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Row(
+                  children: [
+                    widget.task.getTypeImage(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(widget.task.title, style: const TextStyle(fontWeight: FontWeight.bold,),
+                          ),
+                          Text(widget.task.description.length > 30
+                              ? widget.task.description.substring(0, 30)
+                              : widget.task.description),
+                        ],
                       ),
-                      Text(widget.task.description.length > 30
-                          ? widget.task.description.substring(0, 30)
-                          : widget.task.description),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
           Align(
